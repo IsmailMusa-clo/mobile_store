@@ -93,6 +93,10 @@ $conn->close();
         <label class="block text-gray-700">كلمة المرور</label>
         <input type="password" name="password" class="w-full px-4 py-2 border rounded" placeholder="أدخل كلمة المرور" required>
       </div>
+      <div>
+        <label class="block text-gray-700"> تأكيد كلمة المرور</label>
+        <input type="password" name="confirm_password" class="w-full px-4 py-2 border rounded" placeholder="أدخل كلمة المرور" required>
+      </div>
       <button type="submit" class="w-full bg-blue-500 text-white px-4 py-2 rounded">إنشاء الحساب</button>
     </form>
     <div class="mt-2 text-center">
