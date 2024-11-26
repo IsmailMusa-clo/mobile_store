@@ -1,13 +1,8 @@
 <?php
 // checkout_success.php
-session_start();
-require 'config.php';
+ require 'config.php';
 
 // التأكد من تسجيل الدخول
-if(!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
-}
 
 // جلب المنتجات التي تم شراؤها في الطلب الأخير
 $user_id = $_SESSION['user_id'];
@@ -78,7 +73,14 @@ $conn->close();
 </head>
 <body class="bg-gray-100">
     <!-- الشريط العلوي -->
-    <?php include 'navbar.php'; ?>
+    <?php include 'navbar.php'; 
+    if(!isset($_SESSION['user_id'])) {
+      header("Location: login.php");
+      exit();
+  }
+  
+    
+    ?>
     
     <!-- صفحة تأكيد الدفع -->
     <section class="py-12">

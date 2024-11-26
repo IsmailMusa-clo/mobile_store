@@ -1,13 +1,8 @@
 <?php
 // orders.php
-session_start();
-require 'config.php';
+ require 'config.php';
 
-// التحقق مما إذا كان المستخدم مسجلاً دخوله
-if(!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
-}
+
 
 // استرجاع الطلبات الخاصة بالمستخدم من قاعدة البيانات
 $stmt = $conn->prepare("SELECT id, created_at, status, total_amount FROM orders WHERE user_id = ? ORDER BY created_at DESC");
@@ -30,7 +25,14 @@ $conn->close();
 <body class="bg-gray-100">
 
   <!-- الشريط العلوي -->
-  <?php include 'navbar.php'; ?>
+  <?php include 'navbar.php'; 
+  
+  // التحقق مما إذا كان المستخدم مسجلاً دخوله
+if(!isset($_SESSION['user_id'])) {
+  header("Location: login.php");
+  exit();
+}
+  ?>
 
   <!-- Orders Section -->
   <section class="py-12">

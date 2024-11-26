@@ -1,13 +1,8 @@
 <?php
 // profile.php
-session_start();
-require 'config.php';
+ require 'config.php';
 
 // التحقق مما إذا كان المستخدم مسجلاً دخوله
-if(!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
-}
 
 // استرجاع معلومات المستخدم من قاعدة البيانات
 $stmt = $conn->prepare("SELECT full_name, email FROM users WHERE id = ?");
@@ -80,7 +75,12 @@ $conn->close();
 <body class="bg-gray-100">
 
     <!-- الشريط العلوي -->
-    <?php include 'navbar.php'; ?>
+    <?php include 'navbar.php'; 
+    if(!isset($_SESSION['user_id'])) {
+      header("Location: login.php");
+      exit();
+  }
+  ?>
 
     <!-- Profile Section -->
     <section class="py-12">
@@ -92,13 +92,13 @@ $conn->close();
                     <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="صورة المستخدم" class="w-32 h-32 rounded-full mb-4">
                     <h3 class="text-xl font-semibold"><?php echo htmlspecialchars($full_name); ?></h3>
                     <p class="text-gray-600"><?php echo htmlspecialchars($email); ?></p>
-                    <a href="settings.php" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded">الإعدادات</a>
+                    <a href="setting.php" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded">الإعدادات</a>
                 </div>
                 
                 <!-- قائمة الخيارات ونموذج تحديث المعلومات -->
                 <div class="md:w-2/3 mt-6 md:mt-0 md:pl-8">
                     <div class="space-y-4">
-                        <a href="orders.php" class="block bg-gray-100 hover:bg-gray-200 px-4 py-3 rounded">طلباتي</a>
+                        <a href="order.php" class="block bg-gray-100 hover:bg-gray-200 px-4 py-3 rounded">طلباتي</a>
                         <a href="cart.php" class="block bg-gray-100 hover:bg-gray-200 px-4 py-3 rounded">سلة المشتريات</a>
                         <a href="logout.php" class="block bg-red-500 hover:bg-red-600 text-white px-4 py-3 rounded">تسجيل الخروج</a>
                     </div>

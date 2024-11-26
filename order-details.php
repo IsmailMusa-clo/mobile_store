@@ -1,13 +1,8 @@
 <?php
 // order-details.php
-session_start();
-require 'config.php';
+ require 'config.php';
 
 // التحقق مما إذا كان المستخدم مسجلاً دخوله
-if(!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
-}
 
 // التحقق من وجود `order_id` في الرابط
 if(!isset($_GET['order_id'])) {
@@ -52,7 +47,15 @@ $conn->close();
 <body class="bg-gray-100">
 
     <!-- الشريط العلوي -->
-    <?php include 'navbar.php'; ?>
+    <?php include 'navbar.php';
+    
+    if(!isset($_SESSION['user_id'])) {
+      header("Location: login.php");
+      exit();
+  }
+  
+    
+    ?>
 
     <!-- Order Details Section -->
     <section class="py-12">

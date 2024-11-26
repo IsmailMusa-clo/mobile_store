@@ -1,13 +1,8 @@
 <?php
 // checkout.php
-session_start();
-require 'config.php';
+ require 'config.php';
 
-// التحقق مما إذا كان المستخدم مسجلاً دخوله
-if (!isset($_SESSION['user_id'])) {
-  header("Location: login.php");
-  exit();
-}
+
 
 // استرجاع عناصر السلة
 $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
@@ -118,7 +113,11 @@ $conn->close();
 <body class="bg-gray-100">
 
   <!-- الشريط العلوي -->
-  <?php include 'navbar.php'; ?>
+  <?php include 'navbar.php';  // التحقق مما إذا كان المستخدم مسجلاً دخوله
+if (!isset($_SESSION['user_id'])) {
+  header("Location: login.php");
+  exit();
+}?>
 
   <!-- Checkout Section -->
   <section class="py-12">

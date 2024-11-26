@@ -1,5 +1,7 @@
 <?php
 // navbar.php
+session_start();
+
 ?>
 <nav class="bg-white shadow-lg">
   <div class="container mx-auto px-4 py-4 flex justify-between items-center">
