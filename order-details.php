@@ -1,3 +1,13 @@
+  <!-- الشريط العلوي -->
+  <?php include 'navbar.php';
+    
+    if(!isset($_SESSION['user_id'])) {
+      header("Location: login.php");
+      exit();
+  }
+  
+    
+    ?>
 <?php
 // order-details.php
  require 'config.php';
@@ -46,16 +56,7 @@ $conn->close();
 </head>
 <body class="bg-gray-100">
 
-    <!-- الشريط العلوي -->
-    <?php include 'navbar.php';
-    
-    if(!isset($_SESSION['user_id'])) {
-      header("Location: login.php");
-      exit();
-  }
   
-    
-    ?>
 
     <!-- Order Details Section -->
     <section class="py-12">

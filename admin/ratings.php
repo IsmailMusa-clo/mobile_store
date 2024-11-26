@@ -58,24 +58,24 @@ $conn->close();
           <table class="w-full bg-white rounded-lg shadow">
             <thead>
               <tr class="text-left border-b">
-                <th class="py-2 px-4">#</th>
-                <th class="py-2 px-4">اسم المستخدم</th>
-                <th class="py-2 px-4">البريد الإلكتروني</th>
-                <th class="py-2 px-4">اسم المنتج</th>
-                <th class="py-2 px-4">التقييم</th>
-                <th class="py-2 px-4">المراجعة</th>
-                <th class="py-2 px-4">تاريخ الإرسال</th>
-                <th class="py-2 px-4">إجراءات</th>
+                <th class="py-4 px-4">#</th>
+                <th class="py-4 px-4">اسم المستخدم</th>
+                <th class="py-4 px-4">البريد الإلكتروني</th>
+                <th class="py-4 px-4">اسم المنتج</th>
+                <th class="py-4 px-4">التقييم</th>
+                <th class="py-4 px-4">المراجعة</th>
+                <th class="py-4 px-4">تاريخ الإرسال</th>
+                <th class="py-4 px-4">إجراءات</th>
               </tr>
             </thead>
             <tbody>
               <?php foreach ($ratings as $rating): ?>
                 <tr class="border-t">
-                  <td class="py-4 px-4"><?php echo htmlspecialchars($rating['id']); ?></td>
-                  <td class="py-4 px-4"><?php echo htmlspecialchars($rating['full_name']); ?></td>
-                  <td class="py-4 px-4"><?php echo htmlspecialchars($rating['email']); ?></td>
-                  <td class="py-4 px-4"><?php echo htmlspecialchars($rating['product_name']); ?></td>
-                  <td class="py-4 px-4">
+                  <td class="py-4 px-4 text-center"><?php echo htmlspecialchars($rating['id']); ?></td>
+                  <td class="py-4 px-4 text-center"><?php echo htmlspecialchars($rating['full_name']); ?></td>
+                  <td class="py-4 px-4 text-center"><?php echo htmlspecialchars($rating['email']); ?></td>
+                  <td class="py-4 px-4 text-center"><?php echo htmlspecialchars($rating['product_name']); ?></td>
+                  <td class="py-4 px-4 text-center">
                     <?php
                     for ($i = 1; $i <= 5; $i++):
                       if ($i <= $rating['rating']):
@@ -94,9 +94,9 @@ $conn->close();
                     endfor;
                     ?>
                   </td>
-                  <td class="py-4 px-4"><?php echo nl2br(htmlspecialchars($rating['review'])); ?></td>
-                  <td class="py-4 px-4"><?php echo htmlspecialchars($rating['created_at']); ?></td>
-                  <td class="py-4 px-4">
+                  <td class="py-4 px-4 text-center"><?php echo nl2br(htmlspecialchars($rating['review'])); ?></td>
+                  <td class="py-4 px-4 text-center"><?php echo htmlspecialchars($rating['created_at']); ?></td>
+                  <td class="py-4 px-4 text-center">
                     <a href="delete_rating.php?id=<?php echo $rating['id']; ?>" class="text-red-500 hover:underline" onclick="return confirm('هل أنت متأكد من حذف هذا التقييم؟');">حذف</a>
                   </td>
                 </tr>

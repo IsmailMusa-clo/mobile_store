@@ -76,19 +76,19 @@ $conn->close();
                     <table class="w-full">
                         <thead>
                             <tr class="text-left border-b">
-                                <th class="py-2 px-4">المنتج</th>
-                                <th class="py-2 px-4">الكمية</th>
-                                <th class="py-2 px-4">السعر</th>
-                                <th class="py-2 px-4">الإجمالي</th>
+                                <th class="py-4 px-4">المنتج</th>
+                                <th class="py-4 px-4">الكمية</th>
+                                <th class="py-4 px-4">السعر</th>
+                                <th class="py-4 px-4">الإجمالي</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach($order_items as $item): ?>
                                 <tr class="border-t">
-                                    <td class="py-4 px-4"><?php echo htmlspecialchars($item['name']); ?></td>
-                                    <td class="py-4 px-4"><?php echo htmlspecialchars($item['quantity']); ?></td>
-                                    <td class="py-4 px-4">$<?php echo number_format($item['price'], 2); ?></td>
-                                    <td class="py-4 px-4">$<?php echo number_format($item['price'] * $item['quantity'], 2); ?></td>
+                                    <td class="py-4 px-4 text-center"><?php echo htmlspecialchars($item['name']); ?></td>
+                                    <td class="py-4 px-4 text-center"><?php echo htmlspecialchars($item['quantity']); ?></td>
+                                    <td class="py-4 px-4 text-center">$<?php echo number_format($item['price'], 2); ?></td>
+                                    <td class="py-4 px-4 text-center">$<?php echo number_format($item['price'] * $item['quantity'], 2); ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

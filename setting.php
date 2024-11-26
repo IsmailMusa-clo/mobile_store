@@ -1,3 +1,14 @@
+    <!-- الشريط العلوي -->
+    <?php include 'navbar.php'; 
+    // التحقق مما إذا كان المستخدم مسجلاً دخوله
+if(!isset($_SESSION['user_id'])) {
+  header("Location: login.php");
+  exit();
+}
+    
+    ?>
+
+
 <?php
 // settings.php
  require 'config.php';
@@ -113,15 +124,6 @@ $conn->close();
 </head>
 <body class="bg-gray-100">
 
-    <!-- الشريط العلوي -->
-    <?php include 'navbar.php'; 
-    // التحقق مما إذا كان المستخدم مسجلاً دخوله
-if(!isset($_SESSION['user_id'])) {
-  header("Location: login.php");
-  exit();
-}
-    
-    ?>
 
     <!-- Settings Section -->
     <section class="py-12">

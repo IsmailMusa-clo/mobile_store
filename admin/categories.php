@@ -44,21 +44,21 @@ $conn->close();
           <table class="w-full bg-white rounded-lg shadow">
             <thead>
               <tr class="text-left border-b">
-                <th class="py-2 px-4">#</th>
-                <th class="py-2 px-4">الاسم</th>
-                <th class="py-2 px-4">الوصف</th>
-                <th class="py-2 px-4">تاريخ الإنشاء</th>
-                <th class="py-2 px-4">إجراءات</th>
+                <th class="py-4 px-4">#</th>
+                <th class="py-4 px-4">الاسم</th>
+                <th class="py-4 px-4">الوصف</th>
+                <th class="py-4 px-4">تاريخ الإنشاء</th>
+                <th class="py-4 px-4">إجراءات</th>
               </tr>
             </thead>
             <tbody>
               <?php foreach ($categories as $category): ?>
                 <tr class="border-t">
-                  <td class="py-4 px-4"><?php echo htmlspecialchars($category['id']); ?></td>
-                  <td class="py-4 px-4"><?php echo htmlspecialchars($category['name']); ?></td>
-                  <td class="py-4 px-4"><?php echo htmlspecialchars($category['description']); ?></td>
-                  <td class="py-4 px-4"><?php echo htmlspecialchars($category['created_at']); ?></td>
-                  <td class="py-4 px-4">
+                  <td class="py-4 px-4 text-center"><?php echo htmlspecialchars($category['id']); ?></td>
+                  <td class="py-4 px-4 text-center"><?php echo htmlspecialchars($category['name']); ?></td>
+                  <td class="py-4 px-4 text-center"><?php echo htmlspecialchars($category['description']); ?></td>
+                  <td class="py-4 px-4 text-center"><?php echo htmlspecialchars($category['created_at']); ?></td>
+                  <td class="py-4 px-4 text-center">
                     <a href="edit_category.php?id=<?php echo $category['id']; ?>" class="text-blue-500 hover:underline">تعديل</a> |
                     <a href="delete_category.php?id=<?php echo $category['id']; ?>" class="text-red-500 hover:underline" onclick="return confirm('هل أنت متأكد من حذف هذا الصنف؟');">حذف</a>
                   </td>
@@ -66,7 +66,7 @@ $conn->close();
               <?php endforeach; ?>
               <?php if (empty($categories)): ?>
                 <tr>
-                  <td colspan="5" class="py-4 px-4 text-center">لا يوجد أصناف لعرضها.</td>
+                  <td colspan="5" class="py-4 px-4 text-center ">لا يوجد أصناف لعرضها.</td>
                 </tr>
               <?php endif; ?>
             </tbody>

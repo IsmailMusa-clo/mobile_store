@@ -1,8 +1,12 @@
+  <!-- الشريط العلوي -->
+  <?php include 'navbar.php';  // التحقق مما إذا كان المستخدم مسجلاً دخوله
+if (!isset($_SESSION['user_id'])) {
+  header("Location: login.php");
+  exit();
+}?>
 <?php
 // checkout.php
- require 'config.php';
-
-
+require 'config.php';
 
 // استرجاع عناصر السلة
 $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
@@ -48,6 +52,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           throw new Exception("المنتج غير موجود في قاعدة البيانات. Product ID: " . $product_id);
         }
         $stmt->close();
+
+        // إضافة السعر إلى المجموع الكلي
+        $total_amount += $price * $item['quantity']; // ضرب السعر في الكمية
       }
 
       // إدخال الطلب
@@ -97,7 +104,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   }
 }
 
-
 $conn->close();
 ?>
 <!DOCTYPE html>
@@ -112,12 +118,7 @@ $conn->close();
 
 <body class="bg-gray-100">
 
-  <!-- الشريط العلوي -->
-  <?php include 'navbar.php';  // التحقق مما إذا كان المستخدم مسجلاً دخوله
-if (!isset($_SESSION['user_id'])) {
-  header("Location: login.php");
-  exit();
-}?>
+
 
   <!-- Checkout Section -->
   <section class="py-12">

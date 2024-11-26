@@ -41,23 +41,23 @@ $conn->close();
         <table class="w-full bg-white rounded-lg shadow">
           <thead>
             <tr class="text-left border-b">
-              <th class="py-2 px-4">#</th>
-              <th class="py-2 px-4">الاسم</th>
-              <th class="py-2 px-4">البريد الإلكتروني</th>
-              <th class="py-2 px-4">الرسالة</th>
-              <th class="py-2 px-4">تاريخ الإرسال</th>
-              <th class="py-2 px-4">إجراءات</th>
+              <th class="py-4 px-4">#</th>
+              <th class="py-4 px-4">الاسم</th>
+              <th class="py-4 px-4">البريد الإلكتروني</th>
+              <th class="py-4 px-4">الرسالة</th>
+              <th class="py-4 px-4">تاريخ الإرسال</th>
+              <th class="py-4 px-4">إجراءات</th>
             </tr>
           </thead>
           <tbody>
             <?php foreach ($messages as $message): ?>
               <tr class="border-t">
-                <td class="py-4 px-4"><?php echo htmlspecialchars($message['id']); ?></td>
-                <td class="py-4 px-4"><?php echo htmlspecialchars($message['name']); ?></td>
-                <td class="py-4 px-4"><?php echo htmlspecialchars($message['email']); ?></td>
-                <td class="py-4 px-4"><?php echo nl2br(htmlspecialchars($message['message'])); ?></td>
-                <td class="py-4 px-4"><?php echo htmlspecialchars($message['created_at']); ?></td>
-                <td class="py-4 px-4">
+                <td class="py-4 px-4 text-center"><?php echo htmlspecialchars($message['id']); ?></td>
+                <td class="py-4 px-4 text-center"><?php echo htmlspecialchars($message['name']); ?></td>
+                <td class="py-4 px-4 text-center"><?php echo htmlspecialchars($message['email']); ?></td>
+                <td class="py-4 px-4 text-center"><?php echo nl2br(htmlspecialchars($message['message'])); ?></td>
+                <td class="py-4 px-4 text-center"><?php echo htmlspecialchars($message['created_at']); ?></td>
+                <td class="py-4 px-4 text-center">
                   <a href="reply_contact_message.php?id=<?php echo $message['id']; ?>" class="text-blue-500 hover:underline">رد</a> |
                   <a href="delete_contact_message.php?id=<?php echo $message['id']; ?>" class="text-red-500 hover:underline" onclick="return confirm('هل أنت متأكد من حذف هذه الرسالة؟');">حذف</a>
                 </td>

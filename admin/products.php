@@ -44,25 +44,25 @@ $conn->close();
                 <table class="w-full bg-white rounded-lg shadow">
                     <thead>
                         <tr class="text-left border-b">
-                            <th class="py-2 px-4">#</th>
-                            <th class="py-2 px-4">الاسم</th>
-                            <th class="py-2 px-4">الصنف</th>
-                            <th class="py-2 px-4">السعر</th>
-                            <th class="py-2 px-4">المخزون</th>
-                            <th class="py-2 px-4">تاريخ الإنشاء</th>
-                            <th class="py-2 px-4">إجراءات</th>
+                            <th class="py-4 px-4">#</th>
+                            <th class="py-4 px-4">الاسم</th>
+                            <th class="py-4 px-4">الصنف</th>
+                            <th class="py-4 px-4">السعر</th>
+                            <th class="py-4 px-4">المخزون</th>
+                            <th class="py-4 px-4">تاريخ الإنشاء</th>
+                            <th class="py-4 px-4">إجراءات</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach($products as $product): ?>
                             <tr class="border-t">
-                                <td class="py-4 px-4"><?php echo htmlspecialchars($product['id']); ?></td>
-                                <td class="py-4 px-4"><?php echo htmlspecialchars($product['name']); ?></td>
-                                <td class="py-4 px-4"><?php echo htmlspecialchars($product['category']); ?></td>
-                                <td class="py-4 px-4">$<?php echo number_format($product['price'], 2); ?></td>
-                                <td class="py-4 px-4"><?php echo htmlspecialchars($product['stock']); ?></td>
-                                <td class="py-4 px-4"><?php echo htmlspecialchars($product['created_at']); ?></td>
-                                <td class="py-4 px-4">
+                                <td class="py-4 px-4 text-center"><?php echo htmlspecialchars($product['id']); ?></td>
+                                <td class="py-4 px-4 text-center"><?php echo htmlspecialchars($product['name']); ?></td>
+                                <td class="py-4 px-4 text-center"><?php echo htmlspecialchars($product['category']); ?></td>
+                                <td class="py-4 px-4 text-center">$<?php echo number_format($product['price'], 2); ?></td>
+                                <td class="py-4 px-4 text-center"><?php echo htmlspecialchars($product['stock']); ?></td>
+                                <td class="py-4 px-4 text-center"><?php echo htmlspecialchars($product['created_at']); ?></td>
+                                <td class="py-4 px-4 text-center">
                                     <a href="edit_product.php?id=<?php echo $product['id']; ?>" class="text-blue-500 hover:underline">تعديل</a> |
                                     <a href="delete_product.php?id=<?php echo $product['id']; ?>" class="text-red-500 hover:underline" onclick="return confirm('هل أنت متأكد من حذف هذا المنتج؟');">حذف</a>
                                 </td>

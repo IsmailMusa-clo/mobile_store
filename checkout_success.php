@@ -1,3 +1,11 @@
+<?php include 'navbar.php'; 
+    if(!isset($_SESSION['user_id'])) {
+      header("Location: login.php");
+      exit();
+  }
+  
+    
+    ?>
 <?php
 // checkout_success.php
  require 'config.php';
@@ -73,14 +81,7 @@ $conn->close();
 </head>
 <body class="bg-gray-100">
     <!-- الشريط العلوي -->
-    <?php include 'navbar.php'; 
-    if(!isset($_SESSION['user_id'])) {
-      header("Location: login.php");
-      exit();
-  }
   
-    
-    ?>
     
     <!-- صفحة تأكيد الدفع -->
     <section class="py-12">

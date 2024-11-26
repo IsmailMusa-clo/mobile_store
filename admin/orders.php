@@ -41,25 +41,25 @@ $conn->close();
                 <table class="w-full bg-white rounded-lg shadow">
                     <thead>
                         <tr class="text-left border-b">
-                            <th class="py-2 px-4">#</th>
-                            <th class="py-2 px-4">اسم العميل</th>
-                            <th class="py-2 px-4">التاريخ</th>
-                            <th class="py-2 px-4">الحالة</th>
-                            <th class="py-2 px-4">الإجمالي</th>
-                            <th class="py-2 px-4">إجراءات</th>
+                            <th class="py-4 px-4">#</th>
+                            <th class="py-4 px-4">اسم العميل</th>
+                            <th class="py-4 px-4">التاريخ</th>
+                            <th class="py-4 px-4">الحالة</th>
+                            <th class="py-4 px-4">الإجمالي</th>
+                            <th class="py-4 px-4">إجراءات</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach($orders as $order): ?>
                             <tr class="border-t">
-                                <td class="py-4 px-4"><?php echo htmlspecialchars($order['id']); ?></td>
-                                <td class="py-4 px-4"><?php echo htmlspecialchars($order['full_name']); ?></td>
-                                <td class="py-4 px-4"><?php echo htmlspecialchars($order['created_at']); ?></td>
-                                <td class="py-4 px-4 <?php echo ($order['status'] == 'مكتمل') ? 'text-green-500' : (($order['status'] == 'قيد المعالجة') ? 'text-yellow-500' : 'text-red-500'); ?>">
+                                <td class="py-4 px-4 text-center"><?php echo htmlspecialchars($order['id']); ?></td>
+                                <td class="py-4 px-4 text-center"><?php echo htmlspecialchars($order['full_name']); ?></td>
+                                <td class="py-4 px-4 text-center"><?php echo htmlspecialchars($order['created_at']); ?></td>
+                                <td class="py-4 px-4 text-center <?php echo ($order['status'] == 'مكتمل') ? 'text-green-500' : (($order['status'] == 'قيد المعالجة') ? 'text-yellow-500' : 'text-red-500'); ?>">
                                     <?php echo htmlspecialchars($order['status']); ?>
                                 </td>
-                                <td class="py-4 px-4">$<?php echo number_format($order['total_amount'], 2); ?></td>
-                                <td class="py-4 px-4">
+                                <td class="py-4 px-4 text-center">$<?php echo number_format($order['total_amount'], 2); ?></td>
+                                <td class="py-4 px-4 text-center">
                                     <a href="order-details.php?id=<?php echo $order['id']; ?>" class="text-blue-500 hover:underline">تفاصيل</a> |
                                     <a href="change_order_status.php?id=<?php echo $order['id']; ?>" class="text-green-500 hover:underline">تغيير الحالة</a>
                                 </td>
